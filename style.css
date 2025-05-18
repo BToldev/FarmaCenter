@@ -1,0 +1,474 @@
+html {
+  zoom: 1.25;
+}
+
+body .bg-blue {
+  background-color: #0000c2 !important;
+}
+
+/* Make the header static at the top */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050; /* Ensure it stays above other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 0px;
+}
+
+/* Ensure the search form stays in the middle of the header */
+header .search-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1051; /* Ensure it stays above the navbar */
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust the logo */
+header .logo {
+  height: 50px;
+  max-height: 50px;
+  padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+  header .logo {
+    height: 32px;
+    max-height: 32px;
+  }
+}
+
+/* Navbar styles */
+/* Reduce the size of the navbar toggle button area */
+.navbar-toggler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: #fff; /* Make the button color white */
+  padding: 0;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .navbar-toggler {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.navbar-toggler .accordion-button {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  display: inline-block;
+}
+
+.navbar-toggler.collapsed .accordion-button::after {
+  content: "\25BC"; /* Downward triangle */
+  font-size: 14px;
+  color: #fff;
+}
+
+.navbar-toggler:not(.collapsed) .accordion-button::after {
+  content: "\25B2"; /* Upward triangle */
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Style the navbar-toggler to match the accordion collapse arrow */
+.navbar-toggler .accordion-button {
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+.navbar-toggler.collapsed .accordion-button::after {
+  transform: rotate(0deg);
+}
+
+.navbar-toggler:not(.collapsed) .accordion-button::after {
+  transform: rotate(180deg);
+}
+
+/* Replace the navbar-toggler-icon with a Bootstrap arrow-down icon */
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff; /* White arrow */
+  position: relative;
+}
+
+/* Adjust navbar to avoid overlapping with the search form */
+.navbar {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px; /* Add spacing between items */
+  margin-left: auto; /* Push navbar items to the right */
+}
+
+.navbar-nav .nav-item {
+  flex: 0 0 auto; /* Prevent items from stretching */
+  position: relative;
+}
+
+.navbar-nav .nav-link {
+  color: #fff; /* Make text white */
+  padding: 5px 10px; /* Adjust padding for minimal space */
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 20px;
+  transition: color 0.2s;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #ffffff; /* Highlight on hover */
+  color: #000; /* Change text color on hover */
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+  color: #00ff00; /* Change color on hover */
+}
+
+/* Ensure dropdown menus do not interfere with the search form */
+.navbar-nav .nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #007bff;
+  z-index: 1000;
+  min-width: 200px;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  margin-top: 10px; /* Add spacing below navbar items */
+}
+
+.navbar-nav .nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+/* Ensure dropdown menu is visible on click for mobile */
+.navbar-nav .nav-item.show .dropdown-menu {
+  display: block;
+}
+
+/* Restrict the width of the expanded navbar to prevent it from pushing the search form */
+/* Smooth transition for navbar collapse with fixed positioning for text elements */
+.navbar-collapse {
+  transition:
+    max-width 0.3s ease,
+    transform 0.3s ease;
+  max-width: 300px; /* Set a maximum width for the expanded navbar */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  position: absolute; /* Position relative to the toggle button */
+  top: 100%; /* Place it right below the toggle button */
+  left: 0; /* Align with the left edge of the toggle button */
+  background-color: #0000c2; /* Match the header background */
+  z-index: 1050; /* Ensure it stays above other elements */
+  padding: 10px; /* Add padding for better spacing */
+  border-radius: 0 0 20px 0; /* Only the bottom-right corner has 20px border radius */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+}
+
+.navbar-collapse.show {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Keep items aligned to the left */
+  justify-content: flex-start; /* Keep items at the top */
+  text-align: left; /* Ensure text remains left-aligned */
+}
+
+/* Search form styles */
+form {
+  display: flex;
+  align-items: center;
+}
+
+/* form input {
+  flex-grow: 1;
+  border-radius: 5px;
+  padding: 5px 10px;
+} */
+
+form button {
+  margin-left: 0px;
+  margin-right: 10px;
+  /* border-radius: 5px; */
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+form button[style*="display: inline-block"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Adjust the "Onde nos encontrar?" button */
+header .toggle-btn {
+  background-color: #00ff00;
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+header .toggle-btn:hover {
+  background-color: #00cc00;
+}
+
+nav .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  background-color: #0000c2;
+}
+
+nav .bg-blue {
+  background-color: #0000c2;
+}
+
+/* Add padding to the main content to avoid overlap with the fixed header */
+main {
+  height: 100vh;
+  margin-bottom: 0vh;
+  margin-top: 0vh;
+  margin-left: 30vh;
+  margin-right: 30vh;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+
+@media (max-width: 991px) {
+  main {
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+main .bg-blue {
+  background-color: #0000c2 !important;
+}
+
+main .bg-green {
+  background-color: #00ff00 !important;
+}
+
+/* Adjust fixed menu to move buttons down */
+.fixed-menu {
+  position: fixed;
+  top: 100px; /* Move the menu down to avoid overlapping the header */
+  right: 0;
+  width: 15%; /* Adjust width as needed */
+  height: calc(100% - 50px); /* Adjust height to account for the header */
+  background-color: transparent; /* Make background invisible when collapsed */
+  z-index: 1000;
+  padding: 10px;
+  overflow-y: auto; /* Enable scrolling within the menu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Ensure the rest of the page moves normally */
+body {
+  margin-right: 25%; /* Leave space for the fixed menu */
+}
+
+/* Adjust cards within the fixed menu */
+.offcanvas {
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 20px 0;
+  width: 90%;
+}
+
+.offcanvas img {
+  border-bottom: 5px solid #0000c2;
+  background-image: linear-gradient(to bottom, #00cc00, #0000c2);
+  padding-top: 3px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.offcanvas .btn {
+  background-color: #00ff00;
+  color: #000;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-top: 0px;
+}
+
+.offcanvas .btn:hover {
+  background-color: #00cc00;
+}
+
+/* Responsive design for fixed menu */
+@media (max-width: 768px) {
+  .fixed-menu {
+    width: 40%; /* Adjust width for smaller screens */
+    top: 50px; /* Maintain offset for smaller screens */
+    height: calc(100% - 50px); /* Adjust height for smaller screens */
+  }
+
+  body {
+    margin-right: 40%; /* Adjust margin for smaller screens */
+  }
+
+  .fixed-menu .card {
+    width: 95%;
+  }
+}
+
+/* General button styles */
+button {
+  background-color: #00ff00;
+  color: #000;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00cc00;
+}
+
+/* Adjust the mobile search display box to be positioned directly below the header */
+#search-display {
+  display: none;
+  position: fixed;
+  top: 70px; /* Ajuste para garantir que fique abaixo do header */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 1030; /* Lower than the offcanvas menu */
+  min-height: 40px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 24px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero section styles */
+.hero-section .hero-img {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.hero-section .hero-overlay {
+  pointer-events: none;
+}
+
+@media (max-width: 575.98px) {
+  .hero-section h1 {
+    font-size: 1.2rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .hero-section .d-flex.flex-column.flex-md-row {
+    gap: 0.5rem !important;
+  }
+  .hero-section .btn-lg {
+    font-size: 1rem !important;
+    padding: 0.5rem 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .hero-section .btn img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .hero-section .container.position-relative {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1210px) {
+  .hero-section h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .hero-section .btn-lg {
+    font-size: 0.95rem !important;
+    padding: 0.4rem 0.8rem !important;
+    margin-bottom: 0.5rem !important;
+    min-width: 120px !important;
+    max-width: 180px !important;
+    white-space: normal !important;
+  }
+  .hero-section .btn img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .hero-section .container.position-relative {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .hero-section .d-flex.flex-column.flex-md-row {
+    gap: 0.4rem !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+footer {
+  font-size: 14px;
+}
