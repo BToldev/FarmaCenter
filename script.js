@@ -49,7 +49,7 @@ form.addEventListener("submit", function () {
   }, 300); // Aguarda a transição antes de ocultar
 });
 
-/* JavaScript to handle click outside the navbar menu */
+/* Script para cuidar do click fora de navbar menu */
 document.addEventListener("click", function (event) {
   const navbarCollapse = document.querySelector(".navbar-collapse");
   const navbarToggler = document.querySelector(".navbar-toggler");
@@ -60,7 +60,7 @@ document.addEventListener("click", function (event) {
       !navbarToggler.contains(event.target)
     ) {
       navbarCollapse.classList.remove("show");
-      navbarToggler.classList.add("collapsed"); // Ensure the toggler button returns to collapsed state
+      navbarToggler.classList.add("collapsed"); // Botão de navbar deve voltar ao estado colapsado
     }
   }
 });
@@ -68,15 +68,15 @@ document.addEventListener("click", function (event) {
 const inputDesktop = document.getElementById("search-input");
 const displayBoxMobile = document.getElementById("search-display");
 
-// Ensure the mobile search display box is hidden on page load
+// Garante que o campo de pesquisa do mobile comece oculto
 if (window.innerWidth < 768) {
   displayBoxMobile.style.display = "none";
 }
 
-// Make the mobile search display editable
+// Adiciona o evento de clique fora do campo de pesquisa
 displayBoxMobile.setAttribute("contenteditable", "true");
 
-// Synchronize the mobile search display with the form input
+// Sincroniza o campo de pesquisa com o campo de entrada do desktop
 inputDesktop.addEventListener("input", function () {
   if (window.innerWidth < 768) {
     const offcanvasMenu = document.getElementById("offcanvasMenu");
@@ -93,7 +93,7 @@ inputDesktop.addEventListener("input", function () {
   }
 });
 
-// Synchronize the form input with the mobile search display
+// Sincroniza o campo de entrada do desktop com o campo de pesquisa do mobile
 displayBoxMobile.addEventListener("input", function () {
   inputDesktop.value = this.textContent;
   if (window.innerWidth < 768 && this.textContent.trim() === "") {
@@ -101,19 +101,19 @@ displayBoxMobile.addEventListener("input", function () {
     setTimeout(() => {
       displayBoxMobile.style.display = "none";
     }, 300);
-    // Hide the submit button with smooth transition
+    // Esconde o botão de enviar
     submitButton.style.opacity = "0";
     setTimeout(() => {
       submitButton.style.display = "none";
     }, 300);
   } else if (window.innerWidth < 768 && this.textContent.trim() !== "") {
-    // Show the submit button if there is text
+    // Mostra o botão de enviar
     submitButton.style.display = "inline-block";
     submitButton.style.opacity = "1";
   }
 });
 
-// Hide the search display when the offcanvas menu is shown
+// Esconde o campo de pesquisa com offcanvas
 const offcanvasMenu = document.getElementById("offcanvasMenu");
 offcanvasMenu.addEventListener("show.bs.offcanvas", () => {
   displayBoxMobile.style.display = "none";
@@ -125,12 +125,12 @@ searchDisplay.style.display = "none";
 searchDisplay.style.opacity = "0";
 searchDisplay.style.transition = "opacity 0.3s ease";
 
-// Hide the search display box when the 'Enviar' button is clicked
+// Esconde o campo de pesquisa mobile ao enviar
 form.addEventListener("submit", function () {
-  searchDisplay.style.opacity = "0"; // Smoothly hide the search display box
+  searchDisplay.style.opacity = "0";
   setTimeout(() => {
     searchDisplay.style.display = "none";
-  }, 300); // Wait for the transition to complete before hiding
+  }, 300);
 });
 
 // Proteção e expansão de imagem do hero
@@ -171,4 +171,76 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // Popover customizado do catálogo
+  document.querySelectorAll(".btn-popover").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      // Remove popover anterior
+      document.querySelectorAll(".catalog-popover").forEach((p) => p.remove());
+      // Encontra o card e a imagem
+      const card = btn.closest(".card");
+      const img = card.querySelector("img.card-img-top");
+      // Cria popover
+      const pop = document.createElement("div");
+      pop.className = "catalog-popover";
+      pop.innerText = btn.getAttribute("data-bs-content");
+      // Posiciona sobre a imagem
+      img.parentElement.style.position = "relative";
+      img.parentElement.appendChild(pop);
+      // Fecha ao clicar fora ou pressionar Esc
+      setTimeout(() => {
+        function removePop(e) {
+          if (!pop.contains(e.target)) pop.remove();
+          document.removeEventListener("mousedown", removePop);
+          document.removeEventListener("keydown", escPop);
+        }
+        function escPop(e) {
+          if (e.key === "Escape") pop.remove();
+        }
+        document.addEventListener("mousedown", removePop);
+        document.addEventListener("keydown", escPop);
+      }, 10);
+    });
+  });
+
+  // Botão WhatsApp do catálogo
+  const whatsappButtons = document.querySelectorAll(".btn-whatsapp");
+  whatsappButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const product = btn.getAttribute("data-product");
+      const number = "55084999302176";
+      const msg = encodeURIComponent(
+        `Olá! Gostaria de pedir o produto: ${product}`,
+      );
+      window.open(`https://wa.me/${number}?text=${msg}`, "_blank");
+    });
+  });
+});
+
+// Garantir que ao clicar em "Detalhes" o scroll vá até o topo do card
+function scrollToCardTop(btn) {
+  const card = btn.closest(".card");
+  if (card) {
+    const rect = card.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // Considera o header fixo (80px) e um pequeno espaçamento
+    const headerOffset = 90;
+    const top = rect.top + scrollTop - headerOffset;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+}
+
+// Adiciona o scroll ao clicar no botão Detalhes do catálogo
+function setupCatalogDetailsScroll() {
+  document.querySelectorAll("#catalog .catalog-btn-detalhes").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      scrollToCardTop(this);
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  setupCatalogDetailsScroll();
 });

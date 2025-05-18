@@ -6,29 +6,29 @@ body .bg-blue {
   background-color: #0000c2 !important;
 }
 
-/* Make the header static at the top */
+/* Deixa o cabeçalho fixo no topo */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1050; /* Ensure it stays above other elements */
+  z-index: 1050; /* Garante que fique acima dos outros elementos */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 10px 0px;
 }
 
-/* Ensure the search form stays in the middle of the header */
+/* Garante que o formulário de busca fique centralizado no cabeçalho */
 header .search-form {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1051; /* Ensure it stays above the navbar */
+  z-index: 1051; /* Garante que fique acima da navbar */
   display: flex;
   align-items: center;
 }
 
-/* Adjust the logo */
+/* Ajusta o logo */
 header .logo {
   height: 50px;
   max-height: 50px;
@@ -42,8 +42,8 @@ header .logo {
   }
 }
 
-/* Navbar styles */
-/* Reduce the size of the navbar toggle button area */
+/* Estilos da Navbar */
+/* Reduz o tamanho da área do botão de alternância da navbar */
 .navbar-toggler {
   display: flex;
   align-items: center;
@@ -51,7 +51,7 @@ header .logo {
   width: 30px;
   height: 30px;
   border: none;
-  color: #fff; /* Make the button color white */
+  color: #fff; /* Deixa o botão branco */
   padding: 0;
   border-radius: 3px;
 }
@@ -73,19 +73,20 @@ header .logo {
   display: inline-block;
 }
 
-.navbar-toggler.collapsed .accordion-button::after {
-  content: "\25BC"; /* Downward triangle */
+.navbar-toggler .accordion-button::after {
+  content: "\25BC"; /* Triângulo para baixo por padrão */
   font-size: 14px;
   color: #fff;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
 }
 
 .navbar-toggler:not(.collapsed) .accordion-button::after {
-  content: "\25B2"; /* Upward triangle */
-  font-size: 14px;
-  color: #fff;
+  transform: rotate(180deg);
 }
 
-/* Style the navbar-toggler to match the accordion collapse arrow */
+/* Estiliza o botão de alternância da navbar para combinar com a seta do acordeão */
 .navbar-toggler .accordion-button {
   padding: 0;
   background: none;
@@ -96,27 +97,7 @@ header .logo {
   height: auto;
 }
 
-.navbar-toggler.collapsed .accordion-button::after {
-  transform: rotate(0deg);
-}
-
-.navbar-toggler:not(.collapsed) .accordion-button::after {
-  transform: rotate(180deg);
-}
-
-/* Replace the navbar-toggler-icon with a Bootstrap arrow-down icon */
-.navbar-toggler-icon {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #fff; /* White arrow */
-  position: relative;
-}
-
-/* Adjust navbar to avoid overlapping with the search form */
+/* Ajusta a navbar para evitar sobreposição com o formulário de busca */
 .navbar {
   padding-left: 20px;
   padding-right: 20px;
@@ -125,18 +106,18 @@ header .logo {
 .navbar-nav {
   display: flex;
   justify-content: flex-start;
-  gap: 10px; /* Add spacing between items */
-  margin-left: auto; /* Push navbar items to the right */
+  gap: 10px; /* Espaçamento entre os itens */
+  margin-left: auto; /* Empurra os itens da navbar para a direita */
 }
 
 .navbar-nav .nav-item {
-  flex: 0 0 auto; /* Prevent items from stretching */
+  flex: 0 0 auto; /* Impede que os itens estiquem */
   position: relative;
 }
 
 .navbar-nav .nav-link {
-  color: #fff; /* Make text white */
-  padding: 5px 10px; /* Adjust padding for minimal space */
+  color: #fff; /* Deixa o texto branco */
+  padding: 5px 10px; /* Ajusta o padding para menos espaço */
   font-size: 14px;
   font-weight: bold;
   text-align: center;
@@ -145,15 +126,15 @@ header .logo {
 }
 
 .navbar-nav .nav-link:hover {
-  background-color: #ffffff; /* Highlight on hover */
-  color: #000; /* Change text color on hover */
+  background-color: #ffffff; /* Destaca ao passar o mouse */
+  color: #000; /* Muda a cor do texto ao passar o mouse */
 }
 
 .navbar-nav .nav-item:hover .nav-link {
-  color: #00ff00; /* Change color on hover */
+  color: #00ff00; /* Muda a cor ao passar o mouse */
 }
 
-/* Ensure dropdown menus do not interfere with the search form */
+/* Garante que os menus suspensos não interfiram com o formulário de busca */
 .navbar-nav .nav-item .dropdown-menu {
   display: none;
   position: absolute;
@@ -164,55 +145,49 @@ header .logo {
   min-width: 200px;
   padding: 0.5rem 0;
   border-radius: 0.25rem;
-  margin-top: 10px; /* Add spacing below navbar items */
+  margin-top: 10px; /* Espaço abaixo dos itens da navbar */
 }
 
 .navbar-nav .nav-item:hover .dropdown-menu {
   display: block;
 }
 
-/* Ensure dropdown menu is visible on click for mobile */
+/* Garante que o menu suspenso fique visível ao clicar no mobile */
 .navbar-nav .nav-item.show .dropdown-menu {
   display: block;
 }
 
-/* Restrict the width of the expanded navbar to prevent it from pushing the search form */
-/* Smooth transition for navbar collapse with fixed positioning for text elements */
+/* Restringe a largura da navbar expandida para não empurrar o formulário de busca */
+/* Transição suave para o colapso da navbar com posicionamento fixo para os textos */
 .navbar-collapse {
   transition:
     max-width 0.3s ease,
     transform 0.3s ease;
-  max-width: 300px; /* Set a maximum width for the expanded navbar */
-  overflow-x: auto; /* Allow horizontal scrolling if needed */
-  position: absolute; /* Position relative to the toggle button */
-  top: 100%; /* Place it right below the toggle button */
-  left: 0; /* Align with the left edge of the toggle button */
-  background-color: #0000c2; /* Match the header background */
-  z-index: 1050; /* Ensure it stays above other elements */
-  padding: 10px; /* Add padding for better spacing */
-  border-radius: 0 0 20px 0; /* Only the bottom-right corner has 20px border radius */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+  max-width: 300px; /* Define a largura máxima da navbar expandida */
+  overflow-x: auto; /* Permite rolagem horizontal se necessário */
+  position: absolute; /* Posiciona em relação ao botão de alternância */
+  top: 100%; /* Coloca logo abaixo do botão de alternância */
+  left: 0; /* Alinha com a borda esquerda do botão de alternância */
+  background-color: #0000c2; /* Mesma cor do cabeçalho */
+  z-index: 1050; /* Garante que fique acima dos outros elementos */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 0 0 20px 0; /* Apenas o canto inferior direito com 20px de raio */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra sutil */
 }
 
 .navbar-collapse.show {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: flex-start; /* Keep items aligned to the left */
-  justify-content: flex-start; /* Keep items at the top */
-  text-align: left; /* Ensure text remains left-aligned */
+  flex-direction: column; /* Empilha os itens verticalmente */
+  align-items: flex-start; /* Alinha os itens à esquerda */
+  justify-content: flex-start; /* Mantém os itens no topo */
+  text-align: left; /* Garante texto alinhado à esquerda */
 }
 
-/* Search form styles */
+/* Estilos do formulário de busca */
 form {
   display: flex;
   align-items: center;
 }
-
-/* form input {
-  flex-grow: 1;
-  border-radius: 5px;
-  padding: 5px 10px;
-} */
 
 form button {
   margin-left: 0px;
@@ -230,7 +205,7 @@ form button[style*="display: inline-block"] {
   visibility: visible;
 }
 
-/* Adjust the "Onde nos encontrar?" button */
+/* Ajusta o botão "Onde nos encontrar?" */
 header .toggle-btn {
   background-color: #00ff00;
   color: #000;
@@ -258,7 +233,7 @@ nav .bg-blue {
   background-color: #0000c2;
 }
 
-/* Add padding to the main content to avoid overlap with the fixed header */
+/* Adiciona padding ao conteúdo principal para não sobrepor o cabeçalho fixo */
 main {
   height: 100vh;
   margin-bottom: 0vh;
@@ -270,7 +245,7 @@ main {
   padding-top: 80px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1400px) {
   main {
     margin-left: 2vw;
     margin-right: 2vw;
@@ -294,29 +269,29 @@ main .bg-green {
   background-color: #00ff00 !important;
 }
 
-/* Adjust fixed menu to move buttons down */
+/* Ajusta o menu fixo para mover os botões para baixo */
 .fixed-menu {
   position: fixed;
-  top: 100px; /* Move the menu down to avoid overlapping the header */
+  top: 100px; /* Move o menu para baixo para não sobrepor o cabeçalho */
   right: 0;
-  width: 15%; /* Adjust width as needed */
-  height: calc(100% - 50px); /* Adjust height to account for the header */
-  background-color: transparent; /* Make background invisible when collapsed */
+  width: 15%; /* Ajusta a largura conforme necessário */
+  height: calc(100% - 50px); /* Ajusta a altura para considerar o cabeçalho */
+  background-color: transparent; /* Deixa o fundo invisível quando recolhido */
   z-index: 1000;
   padding: 10px;
-  overflow-y: auto; /* Enable scrolling within the menu */
+  overflow-y: auto; /* Habilita rolagem dentro do menu */
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
 }
 
-/* Ensure the rest of the page moves normally */
+/* Garante que o resto da página se mova normalmente */
 body {
-  margin-right: 25%; /* Leave space for the fixed menu */
+  margin-right: 25%; /* Deixa espaço para o menu fixo */
 }
 
-/* Adjust cards within the fixed menu */
+/* Ajusta os cards dentro do menu fixo */
 .offcanvas {
   background-color: #fff;
   border-radius: 20px;
@@ -347,16 +322,16 @@ body {
   background-color: #00cc00;
 }
 
-/* Responsive design for fixed menu */
+/* Design responsivo para o menu fixo */
 @media (max-width: 768px) {
   .fixed-menu {
-    width: 40%; /* Adjust width for smaller screens */
-    top: 50px; /* Maintain offset for smaller screens */
-    height: calc(100% - 50px); /* Adjust height for smaller screens */
+    width: 40%; /* Ajusta a largura para telas menores */
+    top: 50px; /* Mantém o deslocamento para telas menores */
+    height: calc(100% - 50px); /* Ajusta a altura para telas menores */
   }
 
   body {
-    margin-right: 40%; /* Adjust margin for smaller screens */
+    margin-right: 40%; /* Ajusta a margem para telas menores */
   }
 
   .fixed-menu .card {
@@ -364,7 +339,7 @@ body {
   }
 }
 
-/* General button styles */
+/* Estilos gerais de botões */
 button {
   background-color: #00ff00;
   color: #000;
@@ -380,15 +355,15 @@ button:hover {
   background-color: #00cc00;
 }
 
-/* Adjust the mobile search display box to be positioned directly below the header */
+/* Ajusta a caixa de busca mobile para ficar logo abaixo do cabeçalho */
 #search-display {
   display: none;
   position: fixed;
-  top: 70px; /* Ajuste para garantir que fique abaixo do header */
+  top: 70px; /* Garante que fique abaixo do cabeçalho */
   left: 0;
   right: 0;
   margin: 0 auto;
-  z-index: 1030; /* Lower than the offcanvas menu */
+  z-index: 1030; /* Menor que o menu offcanvas */
   min-height: 40px;
   white-space: pre-wrap;
   word-break: break-word;
@@ -399,7 +374,7 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Hero section styles */
+/* Estilos da seção Hero */
 .hero-section .hero-img {
   cursor: pointer;
   z-index: 2;
@@ -471,4 +446,104 @@ button:hover {
 
 footer {
   font-size: 14px;
+}
+
+footer .container {
+  padding: 0px 6px;
+}
+
+/* Garante que o grupo de botões do catálogo nunca saia do card */
+#catalog .btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 0.5rem;
+}
+#catalog .btn-group .btn {
+  flex: 1 1 120px;
+  min-width: 90px;
+  max-width: 100%;
+  white-space: normal;
+  margin-bottom: 0.25rem;
+}
+
+/* Popover customizado sobre a imagem do card, sempre abaixo do header fixo */
+.catalog-popover {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  background: linear-gradient(to top, #00cc00, #0000c2 75%);
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 1);
+  border: 2px solid #0000c2;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  padding: 12px 18px;
+  min-width: 180px;
+  max-width: 90%;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  pointer-events: auto;
+  animation: fadeIn 0.2s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+@media (max-width: 575.98px) {
+  .catalog-popover {
+    top: 5px;
+    font-size: 0.95rem;
+    padding: 10px 8px;
+  }
+}
+
+/* Botões do catálogo */
+.catalog-btn-detalhes {
+  border-color: #0000c2 !important;
+  color: #0000c2 !important;
+  border-radius: 20px !important;
+  font-size: 1rem !important;
+  padding: 6px 10px !important;
+  min-width: 90px !important;
+  max-width: 10px !important;
+  margin-right: 10px;
+  box-shadow: 0 0 2px #0000c2 !important;
+}
+.catalog-btn-whatsapp {
+  background-color: #00ff00 !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  border-radius: 20px !important;
+  font-size: 1rem !important;
+  min-width: 80px !important;
+  box-shadow: 0 0 2px #0000c2 !important;
+}
+.catalog-btn-whatsapp:hover,
+#catalog .catalog-btn-whatsapp:focus {
+  background-color: #00cc00 !important;
+}
+
+/* Foco nas imagens do catálogo ao passar o mouse */
+#catalog .card-img-top {
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s,
+    border 0.25s;
+}
+#catalog .card-img-top:focus,
+#catalog .card-img-top:hover {
+  box-shadow:
+    0 4px 24px 0 rgba(0, 0, 0, 0.18),
+    0 1.5px 8px 0 #0000c2;
+  border: 2px solid #0000c2;
+  outline: none;
 }

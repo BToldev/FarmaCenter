@@ -51,10 +51,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#about">Sobre & Contato</a>
+              <a class="nav-link" href="#about">Sobre</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#products">Atividades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#catalog">Catálogo</a>
             </li>
           </ul>
         </div>
@@ -125,7 +128,7 @@
                 data-full="farmacia1.jpg"
                 class="d-block w-100 h-100 object-fit-cover hero-img"
                 alt="Fachada 1"
-                style="object-fit: cover; filter: brightness(0.7) saturate(1.2);"
+                style="object-fit: cover; filter: brightness(0.7) saturate(1.2)"
                 draggable="false"
                 oncontextmenu="return false;"
                 data-bs-toggle="modal"
@@ -138,7 +141,7 @@
                 data-full="farmacia2.jpg"
                 class="d-block w-100 h-100 object-fit-cover hero-img"
                 alt="Fachada 2"
-                style="object-fit: cover; filter: brightness(0.7) saturate(1.2);"
+                style="object-fit: cover; filter: brightness(0.7) saturate(1.2)"
                 draggable="false"
                 oncontextmenu="return false;"
                 data-bs-toggle="modal"
@@ -151,7 +154,7 @@
                 data-full="farmacia3.jpg"
                 class="d-block w-100 h-100 object-fit-cover hero-img"
                 alt="Fachada 3"
-                style="object-fit: cover; filter: brightness(0.7) saturate(1.2);"
+                style="object-fit: cover; filter: brightness(0.7) saturate(1.2)"
                 draggable="false"
                 oncontextmenu="return false;"
                 data-bs-toggle="modal"
@@ -164,7 +167,7 @@
                 data-full="farmacia4.jpg"
                 class="d-block w-100 h-100 object-fit-cover hero-img"
                 alt="Fachada 4"
-                style="object-fit: cover; filter: brightness(0.7) saturate(1.2);"
+                style="object-fit: cover; filter: brightness(0.7) saturate(1.2)"
                 draggable="false"
                 oncontextmenu="return false;"
                 data-bs-toggle="modal"
@@ -177,7 +180,7 @@
                 data-full="farmacia5.jpg"
                 class="d-block w-100 h-100 object-fit-cover hero-img"
                 alt="Fachada 5"
-                style="object-fit: cover; filter: brightness(0.7) saturate(1.2);"
+                style="object-fit: cover; filter: brightness(0.7) saturate(1.2)"
                 draggable="false"
                 oncontextmenu="return false;"
                 data-bs-toggle="modal"
@@ -190,7 +193,7 @@
                 data-full="farmacia6.jpg"
                 class="d-block w-100 h-100 object-fit-cover hero-img"
                 alt="Fachada 6"
-                style="object-fit: cover; filter: brightness(0.7) saturate(1.2);"
+                style="object-fit: cover; filter: brightness(0.7) saturate(1.2)"
                 draggable="false"
                 oncontextmenu="return false;"
                 data-bs-toggle="modal"
@@ -512,8 +515,367 @@
                   <li>Aplicação de injetáveis</li>
                   <li>Aferição de pressão arterial</li>
                   <li>Orientação farmacêutica</li>
+                  <li>Ambiente acolhedor com cantinho do café e TV</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="catalog">
+        <h2 class="py-2 text-center">Catálogo</h2>
+        <p class="text-center mb-2 lead">
+          Confira alguns dos nossos produtos disponíveis na farmácia.
+        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod1-salonline-small.png"
+                  alt="Creme Para Pentear Salon Line"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Creme Para Pentear Salon Line</h5>
+                  <p class="card-text d-none" id="desc-prod1">
+                    Nutre, repara cabelos danificados e dá brilho com o
+                    cheirinho frutado de uva e melancia.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Nutre, repara cabelos danificados e dá brilho com o cheirinho frutado de uva e melancia."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Creme Para Pentear Salon Line"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod2-granado-small.png"
+                  alt="Sabonete de glicerina Granado"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Sabonete de glicerina Granado</h5>
+                  <p class="card-text d-none" id="desc-prod2">
+                    Fórmula suave que hidrata e perfuma sem irritar a pele do
+                    bebê.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Fórmula suave que hidrata e perfuma sem irritar a pele do bebê."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Sabonete de glicerina Granado"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod3-seakalm-small.png"
+                  alt="Seakalm"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Seakalm</h5>
+                  <p class="card-text d-none" id="desc-prod3">
+                    Calmante natural para estresse e ansiedade; a versão com
+                    melatonina auxilia no sono tranquilo.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Calmante natural para estresse e ansiedade; a versão com melatonina auxilia no sono tranquilo."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Seakalm"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod4-bold-small.png"
+                  alt="Barra de proteína BOLD"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Barra de proteína BOLD</h5>
+                  <p class="card-text d-none" id="desc-prod4">
+                    Snacks proteicos sem açúcar e glúten, ideais para o dia a
+                    dia, treinos ou lanches rápidos.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Snacks proteicos sem açúcar e glúten, ideais para o dia a dia, treinos ou lanches rápidos."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Barra de proteína BOLD"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod5-vitaxon-small.png"
+                  alt="Vitaxon C"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Vitaxon C</h5>
+                  <p class="card-text d-none" id="desc-prod5">
+                    Suplemento com vitamina C que fortalece a imunidade e ajuda
+                    na produção de colágeno.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Suplemento com vitamina C que fortalece a imunidade e ajuda na produção de colágeno."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Vitaxon C"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod6-proteincrisp-small.png"
+                  alt="Barra de proteína Integralmédica"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Barra de proteína Integralmédica</h5>
+                  <p class="card-text d-none" id="desc-prod6">
+                    Barra de proteína com whey, baixa caloria e alto poder de
+                    saciedade, ideal para dietas e treinos.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Barra de proteína com whey, baixa caloria e alto poder de saciedade, ideal para dietas e treinos."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Barra de proteína Integralmédica"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod7-garnier-small.png"
+                  alt="Hidratante Garnier"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Hidratante Garnier</h5>
+                  <p class="card-text d-none" id="desc-prod7">
+                    Tratamento facial com vitamina C e ativos que uniformizam,
+                    firmam e combatem acne.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Tratamento facial com vitamina C e ativos que uniformizam, firmam e combatem acne."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Hidratante Garnier"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod8-acnezil-small.png"
+                  alt="Acnezil"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Acnezil</h5>
+                  <p class="card-text d-none" id="desc-prod8">
+                    Rotina eficaz contra acne e oleosidade, com resultados
+                    clinicamente comprovados.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Rotina eficaz contra acne e oleosidade, com resultados clinicamente comprovados."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Acnezil"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="prod9-lavitan-small.png"
+                  alt="Kit Lavitan Mulher"
+                  class="card-img-top"
+                  draggable="false"
+                  oncontextmenu="return false;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Kit Lavitan Mulher</h5>
+                  <p class="card-text d-none" id="desc-prod9">
+                    Suplementos com colágeno, vitaminas e minerais que
+                    fortalecem cabelos, pele, unhas e ossos.
+                  </p>
+                  <div class="btn-group w-100" role="group">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-popover catalog-btn-detalhes"
+                      data-bs-toggle="popover"
+                      data-bs-title="Detalhes do Produto"
+                      data-bs-content="Suplementos com colágeno, vitaminas e minerais que fortalecem cabelos, pele, unhas e ossos."
+                      data-bs-placement="auto"
+                    >
+                      Detalhes
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success btn-whatsapp catalog-btn-whatsapp"
+                      data-product="Kit Lavitan Mulher"
+                    >
+                      Pedir no WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <a
+                href="https://www.instagram.com/farmacenterrg/"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-success"
+                style="
+                  border-radius: 20px;
+                  padding: 10px;
+                  box-shadow: 0 0 2px #000;
+                "
+                >Ver mais produtos no Instagram</a
+              >
             </div>
           </div>
         </div>
