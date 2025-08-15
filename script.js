@@ -18,7 +18,7 @@ form.addEventListener("submit", function (event) {
   event.preventDefault(); // Impede o envio do formulário
   const input = form.querySelector('input[type="text"]');
   const query = input.value;
-  const number = "55084999302176"; // Número do WhatsApp
+  const number = "55084996371990"; // Número do WhatsApp
   window.open(`https://wa.me/${number}?text=${query}`, "_blank");
   input.value = ""; // Limpa o campo de pesquisa
 });
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
   whatsappButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
       const product = btn.getAttribute("data-product");
-      const number = "55084999302176";
+      const number = "55084996371990";
       const msg = encodeURIComponent(
         `Olá! Gostaria de pedir o produto: ${product}`,
       );
